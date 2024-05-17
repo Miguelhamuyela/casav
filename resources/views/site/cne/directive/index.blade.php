@@ -1,0 +1,48 @@
+@extends('layouts.merge.site')
+@section('titulo', ' Directivas')
+@section('content')
+
+    <!-- ====== Banner Start ====== -->
+    <section class="ud-page-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ud-banner-content">
+                        <h1>Directivas</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== Banner End ====== -->
+
+    <!-- ====== directive Start ====== -->
+    <section class="ud-blog-details">
+        <div class="container">
+
+            <div class="col-md-12 mb-5">
+                <p class="text-dark">
+
+                    @foreach ($categories as $row)
+                        <h4 class="my-3">{{ $row->title }}</h4>
+                        @foreach ($directives as $item)
+                            @if ($row->id == $item->fk_idCategory)
+                                <a href="/storage/{{ $item->file }}" target="_blank" class="my-1 text-dark">
+                                    <i class="lni lni-arrow-right"></i>
+                                    <u>{{ $item->title }}</u>
+                                </a><br>
+                            @endif
+
+                        @endforeach
+                    @endforeach
+
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- ====== directive End ====== -->
+
+
+@endsection
